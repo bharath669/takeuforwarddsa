@@ -1,5 +1,5 @@
 class Recursivefun{
-    public static void functoin(int l,int r,int arr[]){
+    public void functoin(int l,int r,int arr[]){
         if(l>=r){
             return;
         }
@@ -14,10 +14,10 @@ class Recursivefun{
 class ReverseArray{
     public static void main(String args[]){
         int[] arr={12,34,54,32,21};
-        // Recursivefun rec =new Recursivefun();
+        Recursivefun rec =new Recursivefun();
         int l=0;
         int r=arr.length-1;
-        Recursivefun.functoin(l, r, arr);
+        rec.functoin(l, r, arr);
         for(int num :arr){
         System.out.println(num+"");
         }
