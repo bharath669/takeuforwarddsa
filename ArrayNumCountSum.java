@@ -2,20 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 class SumCount{
-    public static void sum(int index,int[] arr,int n,List<Integer> current,int sum){
+    public static boolean  sum(int index,int[] arr,int n,List<Integer> current,int sum){
         if(index==arr.length){
+            // condition is satisfied
             if(sum==n){
                 System.out.println(current);
-                
+                return true;
             }
-            return;
+            else return false;
         }
         current.add(arr[index]);
-        sum(index+1,arr,n,current,sum + arr[index]);
+        if(sum(index+1,arr,n,current,sum + arr[index])==true)
+            return true;
         
         current.remove(current.size() -1);
         // sum=-arr[index];
-        sum(index+1,arr,n,current,sum);
+        if(sum(index+1,arr,n,current,sum)==true)
+            return true;
+        return false;
     }
 }
 
