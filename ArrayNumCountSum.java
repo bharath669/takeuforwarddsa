@@ -1,25 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
 
 class SumCount{
-    public static boolean  sum(int index,int[] arr,int n,List<Integer> current,int sum){
+    public static int  sum(int index,int[] arr,int n,int sum){
         if(index==arr.length){
             // condition is satisfied
-            if(sum==n){
-                System.out.println(current);
-                return true;
-            }
-            else return false;
+            return sum==n ?1:0;
         }
-        current.add(arr[index]);
-        if(sum(index+1,arr,n,current,sum + arr[index])==true)
-            return true;
+        int l =sum(index+1,arr,n,sum + arr[index]); 
+            
         
-        current.remove(current.size() -1);
-        // sum=-arr[index];
-        if(sum(index+1,arr,n,current,sum)==true)
-            return true;
-        return false;
+        int r=sum(index+1,arr,n,sum);
+            
+        return l+r; 
     }
 }
 
@@ -27,7 +18,7 @@ public class ArrayNumCountSum{
     public static void main(String[] args) {
         int[] arr={1,2,1};
         int n=2;
-        System.out.println("subsequence with sum" + n + ":");
-        SumCount.sum(0,arr,n,new ArrayList<>(),0);
+        int count = SumCount.sum(0,arr,n,0);
+        System.out.println("subsequence with sum" + n + ":" + count);
     }
 }
