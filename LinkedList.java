@@ -21,7 +21,10 @@ class LinkedList{
     public static void main(String[] args){
         int[] arr={1,4,8,3};
         Node head=convertArr2LL(arr);
-        System.out.println(head.data);
-        
+        Node temp=head;
+        while (temp!=null) {
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
     }
 }
