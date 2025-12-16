@@ -20,6 +20,7 @@ class ReverseArray{
         rec.functoin(l, r, arr);
         for(int num :arr){
         System.out.println(num+"");
+        
         }
     }
 }
