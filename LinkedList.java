@@ -18,13 +18,19 @@ class LinkedList{
         }
         return head;
     }
+    public static int lengthOfLL(Node head) {
+        int cnt=0;
+        Node temp=head;
+        while (temp!=null) {
+            cnt++;
+            temp=temp.next; 
+        }
+        return cnt;
+        
+    }
     public static void main(String[] args){
         int[] arr={1,4,8,3};
         Node head=convertArr2LL(arr);
-        Node temp=head;
-        while (temp!=null) {
-            System.out.print(temp.data+" ");
-            temp=temp.next;
-        }
+        System.out.println(lengthOfLL(head));
     }
 }
