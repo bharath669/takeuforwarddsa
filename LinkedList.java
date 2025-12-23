@@ -5,6 +5,10 @@ class Node{
         this.data=data;
         this.next=null;
     }
+    Node(int data,Node next){
+        this.data=data;
+        this.next=next;
+    }
 };
 
 class LinkedList{
@@ -74,6 +78,11 @@ class LinkedList{
         }
         return head;
     }
+    public static Node inserthead(Node head,int val){
+        Node temp=new Node(val,head);
+        return temp;
+
+    }
     
     public static void main(String[] args){
         int[] arr={1,4,8,3};
@@ -85,7 +94,9 @@ class LinkedList{
         // display(reversed);
         // Node remTail=removeTail(head);
         // display(remTail);
-        Node remPos=removebyelement(head, 4);
-        display(remPos);
+        // Node remPos=removebyelement(head, 4);
+        // display(remPos);
+        Node inserthead=inserthead(head, 12);
+        display(inserthead);
     }
 }
