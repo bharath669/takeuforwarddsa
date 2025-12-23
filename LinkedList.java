@@ -18,19 +18,39 @@ class LinkedList{
         }
         return head;
     }
-    public static int lengthOfLL(Node head) {
-        int cnt=0;
+    public static Node reverseLinkedList(Node head){
+        if(head==null|| head.next==null){
+            return head;
+        }
+        Node newnNode=reverseLinkedList(head.next);
+        Node front=head.next;
+        front.next=head;
+        head.next=null;
+        return newnNode;
+    }
+    public static void display(Node head){
         Node temp=head;
         while (temp!=null) {
-            cnt++;
-            temp=temp.next; 
+            System.out.print(temp.data+" ");
+            temp=temp.next;
         }
-        return cnt;
-        
+        System.out.println();
     }
+    public static Node delNodebyHead(Node head){
+        if(head==null){
+            return head;
+        }
+        head=head.next;
+        return head;
+    }
+    
     public static void main(String[] args){
         int[] arr={1,4,8,3};
         Node head=convertArr2LL(arr);
-        System.out.println(lengthOfLL(head));
+        display(head);
+        Node delHead=delNodebyHead(head);
+        display(delHead);
+        // Node reversed=reverseLinkedList(head);
+        // display(reversed);
     }
 }
