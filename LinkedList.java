@@ -54,20 +54,18 @@ class LinkedList{
         temp.next=null;
         return head;
     }
-    public static Node removebyposition(Node head,int k){
+    public static Node removebyelement(Node head,int ele){
         if(head==null){
             return head;
         }
-        if(k==1){
+        if(head.data==ele){
             head=head.next;
             return head;
         }
         Node temp=head;
-        Node prev=null;
-        int cnt=0;
+        Node prev=null; 
         while(temp!=null){
-            cnt++;
-            if(cnt==k){
+            if(temp.data==ele){
                 prev.next=prev.next.next;
                 break;
             }
@@ -87,7 +85,7 @@ class LinkedList{
         // display(reversed);
         // Node remTail=removeTail(head);
         // display(remTail);
-        Node remPos=removebyposition(head, 2);
+        Node remPos=removebyelement(head, 4);
         display(remPos);
     }
 }
