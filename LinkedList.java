@@ -83,6 +83,18 @@ class LinkedList{
         return temp;
 
     }
+    public static Node inserttail(Node head,int val){
+        if(head==null){
+            return head;
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        Node newNode=new Node(val);
+        temp.next=newNode;
+        return head;
+    }
     
     public static void main(String[] args){
         int[] arr={1,4,8,3};
@@ -96,7 +108,9 @@ class LinkedList{
         // display(remTail);
         // Node remPos=removebyelement(head, 4);
         // display(remPos);
-        Node inserthead=inserthead(head, 12);
-        display(inserthead);
+        // Node inserthead=inserthead(head, 12);
+        // display(inserthead);
+        Node inserttail=inserttail(head, 5);
+        display(inserttail);
     }
 }
