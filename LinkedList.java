@@ -95,24 +95,17 @@ class LinkedList{
         temp.next=newNode;
         return head;
     }
-    public static Node insertElePosition(Node head,int ele,int k){
+    public static Node insertEleBeforValue(Node head,int ele,int val){
         if(head==null){
-            if(k==1){
-                return new Node(ele);
-            }
-            else{
-                return null;
-            }
+            return null;
         }
-        if(k==1){
+        if(head.data==val){
             return new Node(ele,head);
         }
 
         Node temp=head;
-        int cnt=0;
         while(temp!=null) {
-            cnt++;
-            if(cnt==k-1){
+            if(temp.next.data==val){
                 Node x=new Node(ele);
                 x.next=temp.next;
                 temp.next=x;
@@ -139,7 +132,7 @@ class LinkedList{
         // display(inserthead);
         // Node inserttail=inserttail(head, 5);
         // display(inserttail);
-        Node insertPos=insertElePosition(head, 10, 3);
-        display(insertPos);
+        Node insertval=insertEleBeforValue(head, 10, 4);
+        display(insertval);
     }
 }
