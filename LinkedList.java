@@ -43,14 +43,27 @@ class LinkedList{
         head=head.next;
         return head;
     }
+    public static Node removeTail(Node head){
+        if(head==null || head.next==null){
+            return null;
+        }
+        Node temp=head;
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+        return head;
+    }
     
     public static void main(String[] args){
         int[] arr={1,4,8,3};
         Node head=convertArr2LL(arr);
         display(head);
-        Node delHead=delNodebyHead(head);
-        display(delHead);
+        // Node delHead=delNodebyHead(head);
+        // display(delHead);
         // Node reversed=reverseLinkedList(head);
         // display(reversed);
+        Node remTail=removeTail(head);
+        display(remTail);
     }
 }
