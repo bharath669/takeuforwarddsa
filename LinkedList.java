@@ -85,7 +85,7 @@ class LinkedList{
     }
     public static Node inserttail(Node head,int val){
         if(head==null){
-            return head;
+            return new Node(val);
         }
         Node temp=head;
         while(temp.next!=null){
@@ -95,7 +95,34 @@ class LinkedList{
         temp.next=newNode;
         return head;
     }
-    
+    public static Node insertElePosition(Node head,int ele,int k){
+        if(head==null){
+            if(k==1){
+                return new Node(ele);
+            }
+            else{
+                return null;
+            }
+        }
+        if(k==1){
+            return new Node(ele,head);
+        }
+
+        Node temp=head;
+        int cnt=0;
+        while(temp!=null) {
+            cnt++;
+            if(cnt==k-1){
+                Node x=new Node(ele);
+                x.next=temp.next;
+                temp.next=x;
+                break;
+            }
+            temp=temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args){
         int[] arr={1,4,8,3};
         Node head=convertArr2LL(arr);
@@ -110,7 +137,9 @@ class LinkedList{
         // display(remPos);
         // Node inserthead=inserthead(head, 12);
         // display(inserthead);
-        Node inserttail=inserttail(head, 5);
-        display(inserttail);
+        // Node inserttail=inserttail(head, 5);
+        // display(inserttail);
+        Node insertPos=insertElePosition(head, 10, 3);
+        display(insertPos);
     }
 }
