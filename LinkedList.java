@@ -54,6 +54,28 @@ class LinkedList{
         temp.next=null;
         return head;
     }
+    public static Node removebyposition(Node head,int k){
+        if(head==null){
+            return head;
+        }
+        if(k==1){
+            head=head.next;
+            return head;
+        }
+        Node temp=head;
+        Node prev=null;
+        int cnt=0;
+        while(temp!=null){
+            cnt++;
+            if(cnt==k){
+                prev.next=prev.next.next;
+                break;
+            }
+            prev=temp;
+            temp=temp.next;
+        }
+        return head;
+    }
     
     public static void main(String[] args){
         int[] arr={1,4,8,3};
@@ -63,7 +85,9 @@ class LinkedList{
         // display(delHead);
         // Node reversed=reverseLinkedList(head);
         // display(reversed);
-        Node remTail=removeTail(head);
-        display(remTail);
+        // Node remTail=removeTail(head);
+        // display(remTail);
+        Node remPos=removebyposition(head, 2);
+        display(remPos);
     }
 }
