@@ -142,6 +142,12 @@ public class DoublyLinkedList {
         temp.back=newNode;
         return head;     
     }
+    public static void insertbeforenode(Node1 node,int val){
+        Node1 prev=node.back;
+        Node1 newNode=new Node1(val,node,prev);
+        prev.next=newNode;
+        node.back=newNode;
+    }
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -165,7 +171,9 @@ public class DoublyLinkedList {
         // print(insertNode);
         // Node1 insertNode=insertnodeintail(head, 10);
         // print(insertNode);
-        Node1 insertNode=insertnodeinKthElement(head, 10,1);
-        print(insertNode);
+        // Node1 insertNode=insertnodeinKthElement(head, 10,1);
+        // print(insertNode);
+        insertbeforenode(head.next, 10);
+        print(head);
     }
 }
