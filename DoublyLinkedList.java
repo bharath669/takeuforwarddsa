@@ -123,6 +123,25 @@ public class DoublyLinkedList {
         newNode.next=null;
         return head;
     }
+    public static Node1 insertnodeinKthElement(Node1 head,int val,int k){
+        if(k==1){
+            return insertnodeinhead(head, val);
+        }
+        Node1 temp=head;
+        int cnt=0;
+        while (temp!=null) {
+            cnt++;
+            if(cnt==k){
+                break;
+            }
+            temp=temp.next;
+        }
+        Node1 prev=temp.back;
+        Node1 newNode=new Node1(val,temp,prev);
+        prev.next=newNode; 
+        temp.back=newNode;
+        return head;     
+    }
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -144,7 +163,9 @@ public class DoublyLinkedList {
         // print(head);
         // Node1 insertNode=insertnodeinhead(head, 10);
         // print(insertNode);
-        Node1 insertNode=insertnodeintail(head, 10);
+        // Node1 insertNode=insertnodeintail(head, 10);
+        // print(insertNode);
+        Node1 insertNode=insertnodeinKthElement(head, 10,1);
         print(insertNode);
     }
 }
