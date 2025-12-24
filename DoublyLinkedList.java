@@ -49,6 +49,39 @@ public class DoublyLinkedList {
         tail.back=null;
         return head;
     }
+
+    public static Node1 remoceKthElement(Node1 head,int k){
+        if(head==null){
+            return null; 
+        }
+        Node1 temp=head;
+        int cnt=0;
+        while(temp!=null){
+            cnt++;
+            if(cnt==k){
+                break;
+            }
+            temp=temp.next;
+        }
+        Node1 prev=temp.back;
+        Node1 front=temp.next;
+        if(prev==null&&front==null){
+            return null;
+        }
+        else if (prev==null) {
+            head=deletehead(head);
+        }
+        else if (front==null) {
+            head=deletetail(temp);
+        }
+        else{
+        prev.next=front;
+        front.back=prev;
+        temp.next=null;
+        temp.back=null;
+        }
+        return head;
+    }
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -62,7 +95,9 @@ public class DoublyLinkedList {
         // print(head);
         // Node1 delhead=deletehead(head);
         // print(delhead);
-        Node1 deltail=deletetail(head);
-        print(deltail); 
+        // Node1 deltail=deletetail(head);
+        // print(deltail); 
+        Node1 delbypos=remoceKthElement(head, 2);
+        print(delbypos);
     }
 }
