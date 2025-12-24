@@ -25,6 +25,16 @@ public class DoublyLinkedList {
         }
         return head;
     }
+    public static Node1 deletehead(Node1 head){
+        Node1 prev=head;
+        if(head==null || head.next==null){
+            return null;
+        }
+        head=head.next;
+        head.back=null;
+        prev.next=null;
+        return head;
+    }
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -35,7 +45,8 @@ public class DoublyLinkedList {
     public static void main(String[] args) {
         int[] arr={2,5,7,4};
         Node1 head=convertarr2DLL(arr);
-        print(head);
-
+        // print(head);
+        Node1 delhead=deletehead(head);
+        print(delhead);
     }
 }
