@@ -23,6 +23,7 @@ public class ReverseDoublyLL {
         for(int i=1;i<arr.length;i++){
             Node2 temp=new Node2(arr[i]);
             prev.next=temp;
+            temp.back=prev;
             prev=temp;
         }
         return head;
@@ -34,26 +35,26 @@ public class ReverseDoublyLL {
             temp=temp.next;
         }
     }
-    public static void reverseDLL(Node2 head){
-        Node2 temp=head;
-        Stack<Integer> st=new Stack<>();
-        while(temp!=null){
-            st.push(temp.data);
-            temp=temp.next;
+    public static Node2 reverseDLL(Node2 head){
+        if(head==null||head.next==null){
+            return head;
         }
-        Node2 temp1=head;
-        while(temp1!=null){
-            temp1.data=st.peek();
-            st.pop();
-            temp1=temp1.next;
+        Node2 current=head;
+        Node2 prev=null;
+        while(current!=null){
+            prev=current.back;
+            current.back=current.next;
+            current.next=prev;
+            current=current.back;
         }
+        return prev.back;
     }
     public static void main(String[] args) {
         int[] arr={1,3,2,4};
         Node2 head=convertarr2LL(arr);
         display(head);
-        reverseDLL(head);
+        Node2 revDLL=reverseDLL(head);
         System.out.println();
-        display(head);
+        display(revDLL);
     }
 }
