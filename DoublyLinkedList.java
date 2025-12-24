@@ -82,6 +82,29 @@ public class DoublyLinkedList {
         }
         return head;
     }
+
+    public static Node1 deletenode(Node1 head,int val){
+        Node1 temp=head;
+        while(temp!=null){
+            if(temp.data==val){
+                break;
+            }
+            temp=temp.next;
+        }
+        Node1 prev=temp.back;
+        Node1 front=temp.next;
+        if(front==null){
+            prev.next=null;
+            temp.back=null;
+        }
+        else{
+            prev.next=front;
+            front.back=prev;
+            temp.next=temp.back=null;
+        }
+        return head;
+    }
+
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -97,7 +120,9 @@ public class DoublyLinkedList {
         // print(delhead);
         // Node1 deltail=deletetail(head);
         // print(deltail); 
-        Node1 delbypos=remoceKthElement(head, 2);
-        print(delbypos);
+        // Node1 delbypos=remoceKthElement(head, 2);
+        // print(delbypos);
+        Node1 delnode=deletenode(head,4);
+        print(head);
     }
 }
