@@ -104,7 +104,11 @@ public class DoublyLinkedList {
         }
         return head;
     }
-
+    public static Node1 insertnodeinhead(Node1 head,int val){
+        Node1 newHead=new Node1(val,head,null);
+        head.back=newHead;
+        return newHead;
+    }
     public static void print(Node1 head){
         Node1 temp=head;
         while(temp!=null){
@@ -122,7 +126,9 @@ public class DoublyLinkedList {
         // print(deltail); 
         // Node1 delbypos=remoceKthElement(head, 2);
         // print(delbypos);
-        Node1 delnode=deletenode(head,4);
-        print(head);
+        // Node1 delnode=deletenode(head,4);
+        // print(head);
+        Node1 insertNode=insertnodeinhead(head, 10);
+        print(insertNode);
     }
 }
